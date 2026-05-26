@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "revision-analyser"
+version = "0.1.0"
+description = "Reads .docx tracked-changes as drafting trajectory — paste-burst detection, authorship distribution, thrashing patterns"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Michael Borck", email = "michael.borck@curtin.edu.au" }]
+keywords = ["revisions", "tracked-changes", "drafting", "docx", "ai-detection", "process", "lens"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "lens-contract>=0.2.0",
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "python-multipart>=0.0.9",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "httpx>=0.27.0",
+]
+
+[tool.uv.sources]
+lens-contract = { path = "../lens-contract", editable = true }
+
+[project.scripts]
+revision-analyser = "revision_analyser.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/michael-borck/revision-analyser"
+Repository = "https://github.com/michael-borck/revision-analyser"
+Issues = "https://github.com/michael-borck/revision-analyser/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/revision_analyser"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
