@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Michael Borck", email = "michael.borck@curtin.edu.au" }]
-keywords = ["revisions", "tracked-changes", "drafting", "docx", "ai-detection", "process", "lens"]
+keywords = ["revisions", "tracked-changes", "drafting", "docx", "process", "lens"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
